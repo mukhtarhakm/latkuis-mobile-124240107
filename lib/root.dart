@@ -17,7 +17,7 @@ class _RootState extends State<Root> {
     List<Widget> pages = [HomePage(), ProfilePage()];
 
     return Scaffold(
-      appBar: AppBar(title: Text("Home Page")),
+      appBar: AppBar(title: Text("Home")),
       body: pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,

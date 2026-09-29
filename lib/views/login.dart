@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('lib/Assets/image.png'),
-              Text("Ini Page Login"),
+              Text("Selamat Datang di Gacoan"),
               SizedBox(height: 30),
               TextField(
                 controller: usernameController,
@@ -89,9 +89,10 @@ class _LoginPageState extends State<LoginPage> {
                 child: ElevatedButton(
                   onPressed: login,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue[100],
+                    backgroundColor: const Color.fromARGB(255, 4, 140, 252),
                   ),
-                   child: Text("Login"),
+                   child: Text("Login",
+                   style: TextStyle(color: Colors.white),),
                 ),
               ),
             ],
