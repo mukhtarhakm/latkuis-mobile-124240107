@@ -12,14 +12,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   String searchQuery = "";
+  String selectedCategory = "Semua";
+  final List<String> categories = ["Semua","Mie","Dimsum","Minuman"];
 
   @override
   Widget build(BuildContext context) {
 
-    final filteredMenus = menus.where((menu) {
-      return menu.name.toLowerCase().contains(searchQuery.toLowerCase());
+     final filteredMenus = menus.where((menu) {
+      final matchesSearch = menu.name.toLowerCase().contains(searchQuery.toLowerCase());
+      final matchesCategory = selectedCategory == "Semua" || menu.category == selectedCategory;
+      return matchesSearch && matchesCategory;
     }).toList();
-
     return Column(
       children: [
       Padding(padding: EdgeInsets.all(12.0),
@@ -36,8 +39,35 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(15),
           ),
         ),
+       ),
       ),
-      ),
+
+
+
+       SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+          child: Row(
+            children: categories.map((category) {
+              final isSelected = selectedCategory == category;
+              return Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: ChoiceChip(
+                  label: Text(category),
+                  selected: isSelected,
+                  selectedColor: Colors.deepPurple.shade100,
+                  onSelected: (selected) {
+                    if (selected) {
+                      setState(() {
+                        selectedCategory = category;
+                      });
+                    }
+                  },
+                ),
+              );
+            }).toList(),
+          ),
+        ),
 
 
 
