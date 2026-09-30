@@ -35,10 +35,11 @@ class DetailPage extends StatelessWidget {
           Text(
             product.category,
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 12,
               color: Colors.grey,
             ),
           ),
+          SizedBox(height: 12,),
 
           Text(
             "Rp.${product.price}",

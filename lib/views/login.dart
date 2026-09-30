@@ -48,11 +48,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
-        foregroundColor: Colors.white60,
-        title: Text("Login Page"),
-      ),
+      // appBar: AppBar(
+      //   // backgroundColor: Colors.blueAccent,
+      //   // foregroundColor: Colors.white60,
+      //   title: Text("Login Page"),
+      // ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(25.0),

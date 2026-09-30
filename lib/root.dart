@@ -12,12 +12,13 @@ class Root extends StatefulWidget {
 class _RootState extends State<Root> {
   int selectedIndex = 0;
 
+  final List<String> titles =["Home", "Profile"];
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [HomePage(), ProfilePage()];
 
     return Scaffold(
-      appBar: AppBar(title: Text("Home")),
+      appBar: AppBar(title: Text(titles[selectedIndex])),
       body: pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
