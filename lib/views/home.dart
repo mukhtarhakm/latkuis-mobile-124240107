@@ -87,7 +87,13 @@ class _HomePageState extends State<HomePage> {
                 },
                 title: Text(item.name),
                 subtitle: Text("Rp ${item.price}"),
-                leading: Image.network(item.image, width: 50, height: 50),
+                leading: Hero(
+                  tag: item.id,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(item.image, width: 50, height: 50, fit: BoxFit.cover,),
+                  ),
+                ),
                 trailing: Icon(Icons.arrow_forward_ios),
               );
             },
